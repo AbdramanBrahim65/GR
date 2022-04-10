@@ -1,5 +1,5 @@
 from django.db import models
-
+from parcours.models import ParcoursModel
 # Create your models here.
 
 class NiveauModel(models.Model):
@@ -10,4 +10,13 @@ class NiveauModel(models.Model):
         ordering = ['code']
     def __str__(self):
         return self.code
+
+class ParcoursNiveauModel(models.Model):
+    code_niveau = models.ForeignKey(NiveauModel,on_delete=models.CASCADE)
+    code_parcours = models.ForeignKey(ParcoursModel,on_delete=models.CASCADE)
+
+    description = models.CharField(max_length=144)
+    
+    def __str__(self):
+        return f"{self.code_niveau}{self.code_parcours}"
     

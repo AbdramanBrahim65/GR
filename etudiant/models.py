@@ -1,5 +1,5 @@
 from django.db import models
-
+from niveau.models import ParcoursNiveauModel
 # Create your models here.
 
 class EtudiantModel(models.Model):
@@ -8,10 +8,12 @@ class EtudiantModel(models.Model):
     prenom = models.CharField(max_length = 200,null=True)
     date_naissance = models.DateField(auto_now_add = False)
     lieu_naissance = models.CharField(max_length = 200,null=True)
-    
+    nationnalite = models.CharField(max_length = 200,null=True)
+    image = models.ImageField()
+    code_p_n = models.ForeignKey(ParcoursNiveauModel, on_delete=models.CASCADE)
     choix=(
-        ('H','Homme'),
-        ('F','Femme'),
+        ('M','Masculin'),
+        ('F','Feminin'),
     )
     sexe = models.CharField(max_length=1,choices=choix)
     class Meta:
@@ -20,4 +22,4 @@ class EtudiantModel(models.Model):
     def __str__(self):
         return self.matricule
     
-    
+

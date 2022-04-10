@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block title %}
+<title>Semestre</title>
+{% endblock%} {% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    
+    caption {
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+    }
+    
+    td,
+    th {
+        border: 1px solid black;
+        padding: 1vw;
+    }
+    
+    ul li {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        text-transform: capitalize;
+        color: black;
+    }
+    
+    .container {
+        display: flex;
+    }
+    
+    .tableau2 {
+        margin-top: 9vw;
+        margin-left: 7vw;
+    }
+    
+    button {
+        border: 3px solid #B89E9E;
+        border-radius: 0.5vw;
+        padding: 3px 20px;
+    }
+    
+    ul #ajout a {
+        border: 4px solid #B89E9E;
+        border-radius: 1vw;
+        padding: 3px 70px;
+    }
+</style>
+<div class="container">
+    <div class="tbaleau1">
+        <table>
+            <caption>Listes des Semestre</caption>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>description</th>
+                    <th>Details</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in dataset %}
+                <tr>
+                    <td>{{ data.code}}</td>
+                    <td>{{ data.title }}</td>
+                    <td>{{ data.description }}</td>
+                    <td><button><a href="{% url 'detail_semestre' data.id%}">Details</a></button></td>
+                    <td><button><a href="{% url 'modifier_semestre' data.id %}">Editer</a></button></td>
+                    <td><button><a href="{% url 'supprimer_semestre' data.id %}">supprimer</a></button></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="tableau2">
+        <ul>
+            <li id="ajout"><a href="{% url 'ajouter_semestre' %}">Ajouter</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

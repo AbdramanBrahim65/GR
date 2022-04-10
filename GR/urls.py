@@ -24,5 +24,6 @@ urlpatterns = [
     path('ue/',include('ue.urls')),
     path('niveau/',include('niveau.urls')),
     path('parcours/',include('parcours.urls')),
+    path('semestre/',include('semestre.urls')),
     
 ]

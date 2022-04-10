@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'ue',
     'niveau',
     'parcours',
+    'semestre',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

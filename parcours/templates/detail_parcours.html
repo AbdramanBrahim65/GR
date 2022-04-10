@@ -108,10 +108,10 @@
                     <a href="{% url 'home_niveau' %}">Niveau</a>
                 </li>
                 <li>
-                    <a href="">niveauParcours</a>
+                    <a href="{% url 'home_Nparcours' %}">niveauParcours</a>
                 </li>
                 <li>
-                    <a href="#">Semestre</a>
+                    <a href="{% url 'home_semestre' %}">Semestre</a>
                 </li>
                 <li>
                     <a href="{% url 'home_ue' %}">UE</a>
@@ -122,26 +122,26 @@
     <div class="container">
         <div class="tbaleau1">
             <table>
-                <caption>Listes des UES</caption>
+                <caption>Listes des Parcours</caption>
                 <thead>
                     <tr>
                         <th>Code</th>
-                        <th>Intitule</th>
+                        <th>Title</th>
                         <th>Credit</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{{ data.code}}</td>
-                        <td>{{ data.intitule }}</td>
-                        <td>{{ data.credit }}</td>
+                        <td>{{ data.title }}</td>
+                        <td>{{ data.description }}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="tableau2">
             <ul>
-                <li id="ajout"><a href="{% url 'home_ue' %}">Retourner</a></li>
+                <li id="ajout"><a href="{% url 'home_parcours' %}">Retourner</a></li>
             </ul>
         </div>
     </div>
