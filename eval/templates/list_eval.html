@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block title %}
-<title>UE</title>
+<title>Etudiant</title>
 {% endblock%} {% block content %}
 <style>
     table {
@@ -54,30 +54,37 @@
 <div class="container">
     <div class="tbaleau1">
         <table>
-            <caption>Listes des UES</caption>
+            <caption>Listes des étudiants</caption>
             <thead>
                 <tr>
-                    <th>Code</th>
-                    <th>Intitule</th>
-                    <th>Credit</th>
-                    <th>semestre</th>
-                    <th>Parcours/Niveau</th>
+                    <th>typeEval</th>
+                    <th>note</th>
+                    <th>matricule</th>
+                    <th>code_ue</th>
+                    <th>Details</th>
+                    <th>Editer</th>
+                    <th>Supprimer</th>
                 </tr>
             </thead>
             <tbody>
+                {% for etudiant in dataset %}
                 <tr>
-                    <td>{{ data.code}}</td>
-                    <td>{{ data.intitule }}</td>
-                    <td>{{ data.credit }}</td>
-                    <td>{{ data.code_semestre }}</td>
-                    <td>{{ data.code_p_n }}</td>
+                    <td>{{ etudiant.typeEval}}</td>
+                    <td>{{ etudiant.note }}</td>
+                    <td>{{ etudiant.matricule }}</td>
+                    <td>{{ etudiant.code_ue }}</td>
+                    <td><button><a href="{% url 'detail_eval' etudiant.id %}">Details</a></button></td>
+                    <td><button><a href="{% url 'modifier_eval' etudiant.id %}">Editer</a></button></td>
+                    <td><button><a href="{% url 'supprimer_eval' etudiant.id %}">supprimer</a></button></td>
+
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
     <div class="tableau2">
         <ul>
-            <li id="ajout"><a href="{% url 'home_ue' %}">Retourner</a></li>
+            <li id="ajout"><a href="{% url 'ajouter_eval' %}">Ajouter</a></li>
         </ul>
     </div>
 </div>

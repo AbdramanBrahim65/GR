@@ -60,6 +60,8 @@
                     <th>Code</th>
                     <th>Intitule</th>
                     <th>Credit</th>
+                    <th>semestre</th>
+                    <th>Parcours/Niveau</th>
                     <th>Details</th>
                     <th>Editer</th>
                     <th>Supprimer</th>
@@ -71,6 +73,8 @@
                     <td>{{ data.code}}</td>
                     <td>{{ data.intitule }}</td>
                     <td>{{ data.credit }}</td>
+                    <td>{{ data.code_semestre }}</td>
+                    <td>{{ data.code_p_n }}</td>
                     <td><button><a href="{% url 'detail' data.id%}">Details</a></button></td>
                     <td><button><a href="{% url 'modifier_ue' data.id %}">Editer</a></button></td>
                     <td><button><a href="{% url 'supprimer_ue' data.id %}">supprimer</a></button></td>

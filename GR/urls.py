@@ -25,5 +25,6 @@ urlpatterns = [
     path('niveau/',include('niveau.urls')),
     path('parcours/',include('parcours.urls')),
     path('semestre/',include('semestre.urls')),
+    path('eval/',include('eval.urls')),
     
 ]

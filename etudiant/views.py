@@ -14,7 +14,7 @@ def home(request):
     }
     return render(request,'liste_etudiants.html',context)
 
-@login_required(login_url='accueil')
+
 def ajout_views(request):
     form = EtudiantForms(request.POST)
     if form.is_valid():
@@ -25,7 +25,7 @@ def ajout_views(request):
     }
     return render(request,'ajouter.html',context)
 
-@login_required(login_url='accueil')
+
 def modifier_views(request,pk):
     data = EtudiantModel.objects.get(id=pk)
     form = EtudiantForms(instance = data)
@@ -39,17 +39,17 @@ def modifier_views(request,pk):
     }
     return render(request,"ajouter.html",context)
 
-@login_required(login_url='accueil')
+
 def details_views(request,pk):
-    etudiant = EtudiantForms.objects.get(id=pk)
+    etudiant = EtudiantModel.objects.get(id=pk)
     context = {
         'etudiant':etudiant
     }
     return render(request,'details.html',context)
 
-@login_required(login_url='accueil')
+
 def supprimer_views(request,pk):
-    etudiant = EtudiantForms.objects.get(id=pk)
+    etudiant = EtudiantModel.objects.get(id=pk)
     etudiant.delete()
     return redirect('/')
     context = {

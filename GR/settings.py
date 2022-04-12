@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'niveau',
     'parcours',
     'semestre',
+    'eval',
     'django_filters',
 ]
 
