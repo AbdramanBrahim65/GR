@@ -9,7 +9,6 @@ class EtudiantModel(models.Model):
     date_naissance = models.DateField(auto_now_add = False)
     lieu_naissance = models.CharField(max_length = 200,null=True)
     nationnalite = models.CharField(max_length = 200,null=True)
-    image = models.ImageField()
     code_p_n = models.ForeignKey(ParcoursNiveauModel, on_delete=models.CASCADE)
     choix=(
         ('M','Masculin'),
